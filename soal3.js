@@ -1,7 +1,7 @@
 // s = string angka
-// k = bilangan bulat
+// k = bilangan bulat maksimal perubahan
 const highestPalindrome = (s, k) => {
-    const arr = s.split('');
+    const arr = s.split(''); // ubah string menjadi array
     const changed = Array(arr.length).fill(false);
     const makePalindrome = (left, right, k) => {
         if (left >= right) return { arr, k };
@@ -16,6 +16,7 @@ const highestPalindrome = (s, k) => {
     }
     const minimal = makePalindrome(0, arr.length - 1, k);
     if (!minimal) return "-1";
+    // console.log(minimal);
     let { k: kLeft } = minimal;
     const maximize = (left, right, k) => {
         if (left > right) return;
@@ -41,3 +42,4 @@ const highestPalindrome = (s, k) => {
 
 console.log(highestPalindrome("3943", 1)); // sample 1
 console.log(highestPalindrome("932239", 2)); // sample 2
+console.log(highestPalindrome("12345", 1)); // sample 3

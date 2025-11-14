@@ -1,12 +1,12 @@
 const denseRanking = (s, gitScores) => {
     const result = [];
-    const uniqueScores = [...new Set(s)];
-    for (const s of gitScores) {
-        let i = uniqueScores.length - 1;
-        while (i >= 0 && s >= uniqueScores[i]) {
-            i--;
+    const unique = [...new Set(s)]; // hilangkan duplikat skor
+    for (const score of gitScores) {
+        let players = unique.length - 1;
+        while (players >= 0 && score >= unique[players]) {
+            players--;
         }
-        result.push(i + 2);
+        result.push(players + 2);
     }
     return result.join(' ');
 };
